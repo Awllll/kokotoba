@@ -1,0 +1,89 @@
+:root {
+    --navbar-h: 60px;
+    --page-pad-y: 64px;
+    --toba-green: #3f7a45;
+    --toba-green-dark: #34683a;
+    --toba-green-rgb: 63, 122, 69;
+    --toba-danger: #c0392b;
+    --toba-danger-dark: #a93226;
+}
+
+.admin-card {
+    max-width: 520px;
+    min-height: calc(100dvh - var(--navbar-h) - var(--page-pad-y));
+    margin-inline: auto;
+    background: var(--toba-card-darker);
+    border-radius: 20px;
+    padding: 28px clamp(16px, 5vw, 36px);
+    box-shadow: var(--toba-shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: cardPop 0.25s ease-out;
+}
+@media (min-width: 768px) {
+    .admin-card { max-width: 720px; }
+}
+
+.pill-menu {
+    min-width: 160px;
+    padding: 6px;
+    border: 1px solid rgba(var(--toba-green-rgb), 0.15);
+    border-radius: 12px;
+    background: #edf5ee;
+    box-shadow: var(--toba-shadow-md);
+}
+.pill-menu .dropdown-item {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #243522;
+    transition: background-color .15s ease, color .15s ease, transform .15s ease;
+}
+.pill-menu li:not(:last-child) .dropdown-item { margin-bottom: 2px; }
+.pill-menu .dropdown-item:focus-visible {
+    outline: 2px solid var(--toba-focus);
+    outline-offset: -2px;
+}
+.pill-menu .dropdown-item.active {
+    background: var(--toba-focus);
+    color: #ffffff;
+}
+
+.nav-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #243522;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease;
+}
+.nav-pill:focus-visible {
+    outline: 2px solid var(--toba-focus);
+    outline-offset: 1px;
+}
+.nav-pill.active {
+    background: var(--toba-focus);
+    color: #ffffff;
+}
+.nav-pill-danger { color: var(--toba-danger); }
+
+@media (hover: hover) {
+    .pill-menu .dropdown-item:hover {
+        background: var(--toba-field);
+        color: #172816;
+        transform: translateX(2px);
+    }
+    .pill-menu .dropdown-item.active:hover { background: var(--toba-focus); color: #fff; }
+    .nav-pill:hover { background: var(--toba-field); }
+    .nav-pill.active:hover { background: var(--toba-focus); }
+    .nav-pill-danger:hover { background: #ffebe9; color: var(--toba-danger-dark); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-card, .animate-pop { animation: none; }
+    *, *::before, *::after { transition-duration: .01ms !important; }
+}

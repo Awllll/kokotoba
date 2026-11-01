@@ -1,0 +1,216 @@
+.riwayat-card {
+    max-width: 520px;
+    min-height: calc(100dvh - 60px - 48px);
+    margin-inline: auto;
+    background: var(--toba-card-darker);
+    border-radius: 24px;
+    padding: 28px clamp(14px, 5vw, 36px) 26px;
+    box-shadow: var(--toba-shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    animation: cardPop 0.25s ease-out;
+}
+
+.riwayat-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.riwayat-pill {
+    padding: 6px 16px;
+    background: var(--toba-field);
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a2a1a;
+    box-shadow: var(--toba-shadow-sm);
+    display: inline-flex;
+    align-items: center;
+}
+
+.date-filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+.date-icon {
+    font-size: 18px;
+    color: #2e432c;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.date-icon:hover {
+    transform: scale(1.15);
+    color: var(--toba-focus);
+}
+
+.date-separator {
+    font-size: 11px;
+    color: #556654;
+    font-weight: bold;
+}
+
+.date-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    min-width: 68px;
+    height: 26px;
+    padding: 0 10px;
+    background: #eef3ee;
+    border: 1px solid rgba(63, 122, 69, 0.2);
+    border-radius: 13px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #21331f;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.15s ease;
+}
+.date-pill:hover {
+    background: #ffffff;
+    border-color: var(--toba-focus);
+}
+.date-pill .bi {
+    font-size: 9px;
+    color: #526750;
+}
+.date-pill:focus-within {
+    outline: 2px solid var(--toba-focus);
+    outline-offset: 1px;
+}
+.date-pill input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.quick-presets-bar {
+    padding: 4px 0;
+}
+.preset-label {
+    font-size: 11px;
+    color: #526450;
+    font-weight: 600;
+}
+.btn-preset {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(63, 122, 69, 0.2);
+    border-radius: 14px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #2d4229;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.btn-preset:hover {
+    background: #ffffff;
+    color: var(--toba-focus);
+}
+.btn-preset.active {
+    background: #3f7a45;
+    color: #ffffff;
+    border-color: #3f7a45;
+    box-shadow: 0 2px 6px rgba(63, 122, 69, 0.3);
+}
+
+.kpi-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.kpi-card {
+    background: #f7faf7;
+    border: 1px solid rgba(63, 122, 69, 0.12);
+    border-radius: 14px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+.kpi-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(141, 198, 63, 0.2);
+    color: #2a4c24;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+.kpi-label {
+    display: block;
+    font-size: 9.5px;
+    color: #637761;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.kpi-val {
+    font-size: 14px;
+    color: #172616;
+    font-weight: 700;
+}
+
+.chart-panel {
+    background: var(--toba-card);
+    border-radius: 18px;
+    padding: 20px 14px 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.chart-wrap {
+    position: relative;
+    height: 290px;
+}
+.chart-loader {
+    position: absolute;
+    inset: 0;
+    background: rgba(236, 236, 236, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 16px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.chart-empty {
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--toba-muted);
+}
+
+.riwayat-footer {
+    margin: 22px 0 0;
+    text-align: center;
+    font-size: 11px;
+    color: var(--toba-muted);
+}
+.footer-brand {
+    font-weight: 600;
+    color: #2d422a;
+}
+
+@media (min-width: 768px) {
+    .chart-wrap { height: 320px; }
+}

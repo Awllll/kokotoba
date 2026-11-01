@@ -1,0 +1,170 @@
+:root {
+    --toba-bg: #c3d9c4;
+    --toba-bg-subtle: #d7e8d8;
+    --toba-card: #ececec;
+    --toba-card-darker: #dadada;
+    --toba-field: #c5dac6;
+    --toba-field-hover: #b4cfb6;
+    --toba-field-active: #a1c5a3;
+    --toba-focus: #3f7a45;
+    --toba-focus-glow: rgba(63, 122, 69, 0.25);
+    --toba-muted: #6b756b;
+    --toba-leaf-dark: #2f3b2a;
+    --toba-leaf-primary: #8dc63f;
+    --toba-leaf-light: #b5d94a;
+    --toba-shadow-sm: 0 2px 8px rgba(47, 59, 42, 0.06);
+    --toba-shadow-md: 0 8px 24px rgba(47, 59, 42, 0.1);
+    --toba-shadow-lg: 0 16px 36px rgba(47, 59, 42, 0.14);
+    --toba-transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at 50% 0%, #d4e7d5 0%, var(--toba-bg) 70%);
+    background-attachment: fixed;
+    font-family: "Mako", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1a2318;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.font-alike {
+    font-family: "Alike", serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+@keyframes floatLeaf {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(2deg);
+    }
+}
+
+@keyframes pulseDot {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.9;
+        box-shadow: 0 0 0 6px rgba(76, 175, 80, 0);
+    }
+}
+
+@keyframes laserScan {
+    0% {
+        top: 0%;
+        opacity: 0.8;
+    }
+    50% {
+        top: 96%;
+        opacity: 1;
+    }
+    100% {
+        top: 0%;
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardPop {
+    0% {
+        transform: scale(0.97);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rippleRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(141, 198, 63, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 14px rgba(141, 198, 63, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(141, 198, 63, 0);
+    }
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #adb5bd;
+    vertical-align: middle;
+}
+
+.status-dot.is-online {
+    background-color: #28a745;
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+.toba-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1090;
+    background: #233522;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+
+.toba-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.toba-toast i {
+    font-size: 16px;
+    color: var(--toba-leaf-primary);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.04);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(63, 122, 69, 0.3);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(63, 122, 69, 0.5);
+}
